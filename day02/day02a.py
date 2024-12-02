@@ -43,17 +43,16 @@ So, in this example, 2 reports are safe.
 Analyze the unusual data from the engineers. How many reports are safe?
 """
 
-def is_inc(arr: list[int]) -> bool:
+def check(arr: list[int]) -> bool:
     gap = all(abs(a - b) < 4 for a, b in zip(arr, arr[1:]))
     inc = all(a < b for a, b in zip(arr, arr[1:]))
     dec = all(a > b for a, b in zip(arr, arr[1:]))
     return gap and (inc or dec)
 
-
-def get_total_dist(s: str) -> int:
-    return sum(is_inc(r) for r in map(lambda x: [*map(int, x.split())], s.split("\n")))
+def get_num_safe(s: str) -> int:
+    return sum(check(r) for r in map(lambda x: [*map(int, x.split())], s.split("\n")))
     
 with open("input.txt") as f:
-    print(get_total_dist(f.read()))
+    print(get_num_safe(f.read()))
     
 #686 reports safe
