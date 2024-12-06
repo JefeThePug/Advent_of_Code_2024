@@ -51,7 +51,7 @@ How many different positions could you choose for this obstruction?
 import numpy as np
 
 class Guard:
-    def __init__(self, x, y, dx, dy):
+    def __init__(self, x: int, y: int, dx: int, dy: int):
         self.x = x
         self.y = y
         self.occupy()
@@ -62,7 +62,7 @@ class Guard:
         self.out = False
         self.mapping = {".":"X", "X":"+", "+":"*", "*":"O"}
         
-    def move(self):
+    def move(self) -> None:
         if self.facing in ".X+*":
             self.x += self.dx
             self.y += self.dy
@@ -77,10 +77,10 @@ class Guard:
         elif self.facing == "@":
             self.out = True
             
-    def occupy(self, val="X"):
+    def occupy(self, val="X") -> None:
         sim[self.x, self.y] = val
 
-    def look_ahead(self):
+    def look_ahead(self) -> None:
         self.facing = sim[self.x + self.dx, self.y + self.dy]
 
     

@@ -70,7 +70,7 @@ Predict the path of the guard. How many distinct positions will the guard visit 
 import numpy as np
 
 class Guard:
-    def __init__(self, x, y, dx, dy):
+    def __init__(self, x: int, y: int, dx: int, dy: int):
         self.x = x
         self.y = y
         self.occupy()
@@ -80,7 +80,7 @@ class Guard:
         self.look_ahead()
         self.out = False
         
-    def move(self):
+    def move(self) -> None:
         if self.facing in ".X":
             self.x += self.dx
             self.y += self.dy
@@ -92,10 +92,10 @@ class Guard:
         elif self.facing == "@":
             self.out = True
             
-    def occupy(self):
+    def occupy(self) -> None:
         grid[self.x, self.y] = "X"
 
-    def look_ahead(self):
+    def look_ahead(self) -> None:
         self.facing = grid[self.x + self.dx, self.y + self.dy]
 
     
