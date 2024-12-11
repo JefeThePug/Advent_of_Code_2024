@@ -1,12 +1,11 @@
 """
 --- Day 11: Plutonian Pebbles ---
-https://adventofcode.com/2024/day/11
+ https://adventofcode.com/2024/day/11 
 """
 
 from functools import cache
 from math import floor, log10
 
-@cache
 def process(n: int) -> int | tuple[int, int]:
     if n == 0: return 1
     digits = floor(log10(n)) + 1
