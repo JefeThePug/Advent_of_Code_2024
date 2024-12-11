@@ -25,6 +25,7 @@ def iterate(stone: int, i: int) -> int:
 with open("input.txt") as f:
     line = map(int, f.read().split())
 
-print(sum(iterate(stone, 25) for stone in line))
+iterations = 25
+print(sum(iterate(stone, iterations) for stone in line))
 
 #Total Stones: 231278
